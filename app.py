@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import textwrap
 
 from src.prediction import predict_bike_demand
 
@@ -21,233 +22,233 @@ st.set_page_config(
 # =========================================================
 
 st.markdown(
-    """
-<style>
+    textwrap.dedent(
+        """
+        <style>
 
-/* ---------- Page ---------- */
+        /* ---------- Page ---------- */
 
-.stApp {
-    background-color: #f5f7fa;
-}
+        .stApp {
+            background-color: #f5f7fa;
+        }
 
-.block-container {
-    max-width: 1180px;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
-}
-
-
-/* ---------- Hide Streamlit UI ---------- */
-
-#MainMenu {
-    visibility: hidden;
-}
-
-footer {
-    visibility: hidden;
-}
-
-header {
-    visibility: hidden;
-}
+        .block-container {
+            max-width: 1180px;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+        }
 
 
-/* ---------- Hero ---------- */
+        /* ---------- Hide Streamlit UI ---------- */
 
-/* ---------- Hero ---------- */
+        #MainMenu {
+            visibility: hidden;
+        }
 
-.hero-box {
-    background: linear-gradient(135deg, #111827, #273449);
-    padding: 18px 42px;
-    border-radius: 24px 24px 0 0;
-    margin-bottom: 0;
-    color: #9ca3af;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
+        footer {
+            visibility: hidden;
+        }
 
-h1 {
-    color: #111827 !important;
-    font-size: 42px !important;
-    font-weight: 800 !important;
-    margin-top: 10px !important;
-    margin-bottom: 8px !important;
-}
-
-.hero-box + div {
-    color: #6b7280;
-}
-
-.hero-small {
-    color: #9ca3af;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.hero-title {
-    color: white;
-    font-size: 44px;
-    font-weight: 800;
-    margin-top: 8px;
-}
-
-.hero-description {
-    color: #6b7280 !important;
-    font-size: 16px !important;
-    line-height: 1.6 !important;
-    margin-bottom: 25px !important;
-}
+        header {
+            visibility: hidden;
+        }
 
 
-/* ---------- Section headers ---------- */
+        /* ---------- Hero ---------- */
 
-.section-heading {
-    font-size: 21px;
-    font-weight: 750;
-    color: #111827;
-    margin-top: 12px;
-}
+        .hero-box {
+            background: linear-gradient(135deg, #111827, #273449);
+            padding: 18px 42px;
+            border-radius: 24px 24px 0 0;
+            margin-bottom: 0;
+            color: #9ca3af;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
 
-.section-description {
-    color: #6b7280;
-    font-size: 14px;
-    margin-bottom: 18px;
-}
+        h1 {
+            color: #111827 !important;
+            font-size: 42px !important;
+            font-weight: 800 !important;
+            margin-top: 10px !important;
+            margin-bottom: 8px !important;
+        }
 
+        .hero-small {
+            color: #9ca3af;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
 
-/* ---------- Labels ---------- */
+        .hero-title {
+            color: white;
+            font-size: 44px;
+            font-weight: 800;
+            margin-top: 8px;
+        }
 
-.stDateInput label,
-.stNumberInput label,
-.stSlider label,
-.stSelectbox label {
-    color: #374151 !important;
-    font-weight: 600 !important;
-}
-
-
-/* ---------- Inputs ---------- */
-
-.stDateInput input,
-.stNumberInput input {
-    border-radius: 10px !important;
-}
-
-
-/* ---------- Button ---------- */
-
-.stButton > button {
-    width: 100%;
-    height: 54px;
-    border-radius: 12px;
-    background: #111827;
-    color: white;
-    border: none;
-    font-size: 16px;
-    font-weight: 700;
-}
-
-.stButton > button:hover {
-    background: #374151;
-    color: white;
-}
+        .hero-description {
+            color: #6b7280 !important;
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+            margin-bottom: 25px !important;
+        }
 
 
-/* ---------- Prediction ---------- */
+        /* ---------- Section headers ---------- */
 
-.result-box {
-    background: linear-gradient(135deg, #111827, #374151);
-    padding: 34px;
-    border-radius: 22px;
-    text-align: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
+        .section-heading {
+            font-size: 21px;
+            font-weight: 750;
+            color: #111827;
+            margin-top: 12px;
+        }
 
-.result-label {
-    color: #d1d5db;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.result-number {
-    color: white;
-    font-size: 52px;
-    font-weight: 800;
-    margin: 8px 0;
-}
-
-.result-unit {
-    color: #9ca3af;
-    font-size: 14px;
-}
+        .section-description {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
 
 
-/* ---------- Info cards ---------- */
+        /* ---------- Labels ---------- */
 
-.info-box {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 20px;
-    min-height: 115px;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.035);
-}
-
-.info-title {
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 7px;
-}
-
-.info-text {
-    color: #6b7280;
-    font-size: 13px;
-    line-height: 1.5;
-}
+        .stDateInput label,
+        .stNumberInput label,
+        .stSlider label,
+        .stSelectbox label {
+            color: #374151 !important;
+            font-weight: 600 !important;
+        }
 
 
-/* ---------- Footer ---------- */
+        /* ---------- Inputs ---------- */
 
-.footer-text {
-    text-align: center;
-    color: #9ca3af;
-    font-size: 12px;
-    margin-top: 35px;
-}
+        .stDateInput input,
+        .stNumberInput input {
+            border-radius: 10px !important;
+        }
 
-</style>
-""",
+
+        /* ---------- Button ---------- */
+
+        .stButton > button {
+            width: 100%;
+            height: 54px;
+            border-radius: 12px;
+            background: #111827;
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .stButton > button:hover {
+            background: #374151;
+            color: white;
+        }
+
+
+        /* ---------- Prediction ---------- */
+
+        .result-box {
+            background: linear-gradient(135deg, #111827, #374151);
+            padding: 34px;
+            border-radius: 22px;
+            text-align: center;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .result-label {
+            color: #d1d5db;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .result-number {
+            color: white;
+            font-size: 52px;
+            font-weight: 800;
+            margin: 8px 0;
+        }
+
+        .result-unit {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+
+        /* ---------- Info cards ---------- */
+
+        .info-box {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 20px;
+            min-height: 115px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.035);
+        }
+
+        .info-title {
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 7px;
+        }
+
+        .info-text {
+            color: #6b7280;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+
+        /* ---------- Footer ---------- */
+
+        .footer-text {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 12px;
+            margin-top: 35px;
+        }
+
+        </style>
+        """
+    ),
     unsafe_allow_html=True
 )
 
 
 # =========================================================
 # HERO
-# =======================================================
+# =========================================================
 
 st.markdown(
-    """
-    <div class="hero-box">
-        MACHINE LEARNING • URBAN MOBILITY
-    </div>
-    """,
+    textwrap.dedent(
+        """
+        <div class="hero-box">
+            MACHINE LEARNING • URBAN MOBILITY
+        </div>
+        """
+    ),
     unsafe_allow_html=True
 )
 
 st.title("Urban Demand Forecasting")
 
 st.markdown(
-    '<p style="color:#6b7280; font-size:16px; line-height:1.6;">'
+    '<p class="hero-description">'
     'Predict hourly bike rental demand using temporal, weather, '
     'seasonal, and operational factors powered by a machine learning model.'
     '</p>',
     unsafe_allow_html=True
 )
+
+
 # =========================================================
 # DEMAND CONDITIONS
 # =========================================================
@@ -258,7 +259,9 @@ st.markdown(
 )
 
 st.markdown(
-    '<div class="section-description">Enter the conditions for the hour you want to forecast.</div>',
+    '<div class="section-description">'
+    'Enter the conditions for the hour you want to forecast.'
+    '</div>',
     unsafe_allow_html=True
 )
 
@@ -352,7 +355,9 @@ st.markdown(
 )
 
 st.markdown(
-    '<div class="section-description">Additional environmental and service conditions.</div>',
+    '<div class="section-description">'
+    'Additional environmental and service conditions.'
+    '</div>',
     unsafe_allow_html=True
 )
 
@@ -404,7 +409,9 @@ st.markdown(
 )
 
 st.markdown(
-    '<div class="section-description">Specify whether the bike-sharing service is operating.</div>',
+    '<div class="section-description">'
+    'Specify whether the bike-sharing service is operating.'
+    '</div>',
     unsafe_allow_html=True
 )
 
@@ -464,23 +471,11 @@ if predict_button:
 
         # Result
         st.markdown(
-            f"""
-            <div class="result-box">
-
-                <div class="result-label">
-                    Predicted Hourly Demand
-                </div>
-
-                <div class="result-number">
-                    {round(prediction):,}
-                </div>
-
-                <div class="result-unit">
-                    estimated bike rentals
-                </div>
-
-            </div>
-            """,
+            f"""<div class="result-box">
+<div class="result-label">Predicted Hourly Demand</div>
+<div class="result-number">{round(prediction):,}</div>
+<div class="result-unit">estimated bike rentals</div>
+</div>""",
             unsafe_allow_html=True
         )
 
@@ -492,20 +487,10 @@ if predict_button:
         with info1:
 
             st.markdown(
-                """
-                <div class="info-box">
-
-                    <div class="info-title">
-                        🕐 Forecast Time
-                    </div>
-
-                    <div class="info-text">
-                        The prediction is generated for the
-                        selected date and hour.
-                    </div>
-
-                </div>
-                """,
+                """<div class="info-box">
+<div class="info-title">🕐 Forecast Time</div>
+<div class="info-text">The prediction is generated for the selected date and hour.</div>
+</div>""",
                 unsafe_allow_html=True
             )
 
@@ -513,20 +498,10 @@ if predict_button:
         with info2:
 
             st.markdown(
-                """
-                <div class="info-box">
-
-                    <div class="info-title">
-                        🌡️ Weather Context
-                    </div>
-
-                    <div class="info-text">
-                        Temperature, humidity, visibility,
-                        wind and precipitation are considered.
-                    </div>
-
-                </div>
-                """,
+                """<div class="info-box">
+<div class="info-title">🌡️ Weather Context</div>
+<div class="info-text">Temperature, humidity, visibility, wind and precipitation are considered.</div>
+</div>""",
                 unsafe_allow_html=True
             )
 
@@ -534,20 +509,10 @@ if predict_button:
         with info3:
 
             st.markdown(
-                """
-                <div class="info-box">
-
-                    <div class="info-title">
-                        🤖 ML Prediction
-                    </div>
-
-                    <div class="info-text">
-                        Prediction generated using the trained
-                        Random Forest regression pipeline.
-                    </div>
-
-                </div>
-                """,
+                """<div class="info-box">
+<div class="info-title">🤖 ML Prediction</div>
+<div class="info-text">Prediction generated using the trained Random Forest regression pipeline.</div>
+</div>""",
                 unsafe_allow_html=True
             )
 
@@ -566,10 +531,12 @@ if predict_button:
 # =========================================================
 
 st.markdown(
-    """
-    <div class="footer-text">
-        Urban Demand Forecasting • Machine Learning Project
-    </div>
-    """,
+    textwrap.dedent(
+        """
+        <div class="footer-text">
+            Urban Demand Forecasting • Machine Learning Project
+        </div>
+        """
+    ),
     unsafe_allow_html=True
 )
