@@ -24,7 +24,8 @@
 ## 🖥️ Application Preview
 
 <p align="center">
-  <img src="assets/dashboard.png" width="900">
+  <<img width="981" height="943" alt="Screenshot 2026-09-22 124917" src="https://github.com/user-attachments/assets/1e5e006e-e33c-4a3c-bb7f-60b99b7d728b" />
+>
 </p>
 
 ---
@@ -346,6 +347,18 @@ Predict later observations
 
 This also reduces the risk of temporal leakage caused by randomly mixing observations from different periods.
 
+----
+<img width="1033" height="481" alt="Screenshot 2026-09-22 125139" src="https://github.com/user-attachments/assets/4229c375-33a7-4d96-960d-365f3ec8b314" />
+
+<img width="1136" height="790" alt="Screenshot 2026-09-22 125211" src="https://github.com/user-attachments/assets/ed3fb785-dd20-4a3b-a2cd-96de447e2d6f" />
+
+<img width="1097" height="652" alt="Screenshot 2026-09-22 125225" src="https://github.com/user-attachments/assets/21e4d823-3a12-4ee4-813b-f56afc8ad4f6" />
+
+
+
+----
+
+
 🤖 Machine Learning Models
 1. Linear Regression
 
@@ -532,6 +545,10 @@ Example:
 prediction = predict_bike_demand(input_data)
 
 This separation keeps the ML inference logic reusable outside the UI.
+
+--
+<img width="1021" height="473" alt="Screenshot 2026-09-22 124929" src="https://github.com/user-attachments/assets/cbdde1ee-6087-4ad1-8e76-22bf4229989a" />
+
 --
 
 🖥️ Streamlit Application
@@ -646,13 +663,16 @@ Pranav Sharma
 
 B.Tech Computer Science (AI/ML)
 
-Connect
-<p align="left"> <a href="https://github.com/Pranav123221"> <img src="https://img.shields.io/badge/GitHub-Pranav123221-black?style=for-the-badge&logo=github" /> </a> <a href="https://www.linkedin.com/in/pranav-sharma-333b67338/"> <img src="https://img.shields.io/badge/LinkedIn-Pranav%20Sharma-blue?style=for-the-badge&logo=linkedin" /> </a> </p>
+Connect:
+linkedin :[https://www.linkedin.com/in/pranav-sharma-333b67338/]
+
+
 ⭐ If You Found This Project Useful
 
 Consider giving the repository a ⭐ on GitHub.
 
-<p align="center"> <b>Built with Python • Scikit-learn • Pandas • Streamlit</b> </p> <p align="center"> 🚲 Turning urban mobility data into actionable demand predictions. </p> ```
+ 🚲 Turning urban mobility data into actionable demand predictions. 
 
 One important correction: README mein models/bike_demand_model.pkl ko project structure mein dikhaya hai for the intended local project structure, but GitHub par woh file currently nahi hai because of the 100 MB limit. That's okay; the README explicitly explains it.
 
+Liscense MIT
