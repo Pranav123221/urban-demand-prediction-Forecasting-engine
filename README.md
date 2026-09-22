@@ -346,28 +346,7 @@ Train on historical data
 Predict later observations
 
 This also reduces the risk of temporal leakage caused by randomly mixing observations from different periods.
-
-IMPLEMENTATION PART :
-
-
-<img width="1033" height="481" alt="Screenshot 2026-09-22 125139" src="https://github.com/user-attachments/assets/4229c375-33a7-4d96-960d-365f3ec8b314" />
-
-
-
-
-<img width="1136" height="790" alt="Screenshot 2026-09-22 125211" src="https://github.com/user-attachments/assets/ed3fb785-dd20-4a3b-a2cd-96de447e2d6f" />
-
-
-
-
-
-
-<img width="1097" height="652" alt="Screenshot 2026-09-22 125225" src="https://github.com/user-attachments/assets/21e4d823-3a12-4ee4-813b-f56afc8ad4f6" />
-
-
-
--
-
+--
 
 🤖 Machine Learning Models
 1. Linear Regression
