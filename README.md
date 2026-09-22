@@ -29,7 +29,14 @@
 </p>
 
 ---
+### 🚀 Live Demo
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?style=for-the-badge)](https://urban-demand-prediction-forecasting-engine-production.up.railway.app/)
+
+**Live App:** [Open Urban Demand Forecasting App](https://urban-demand-prediction-forecasting-engine-production.up.railway.app/)
+
+
+--
 ## 📌 Overview
 
 Urban mobility systems experience continuously changing demand throughout the day.
