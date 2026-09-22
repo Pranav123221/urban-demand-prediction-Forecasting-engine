@@ -1,15 +1,17 @@
 import pandas as pd
 import joblib
-from pathlib import Path
+import requests
+import io
 
-# Get project root directory
-BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Model path
-MODEL_PATH = BASE_DIR / "models" / "bike_demand_model.pkl"
+MODEL_URL = "https://huggingface.co/PranavDeployer221/urban-bike-demand-model/resolve/main/bike_demand_model.pkl"
 
-# Load trained model
-model = joblib.load(MODEL_PATH)
+
+# Download and load model from Hugging Face
+response = requests.get(MODEL_URL)
+response.raise_for_status()
+
+model = joblib.load(io.BytesIO(response.content))
 
 
 def predict_bike_demand(input_data):
